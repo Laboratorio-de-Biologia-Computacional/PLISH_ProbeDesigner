@@ -1,0 +1,40 @@
+				PLISH Probe Generator 
+				Program "BLAST210" Output 
+
+Location			mRNA Sequence
+Location
+0 Off Target Hits
+Location
+1 Off Target Hits
+>1271
+atgtcctgctccaccttgctatacggtcggacctggtgag
+>1273
+gtcctgctccaccttgctatacggtcggacctggtgagag
+>2055
+atattatttggcagtttggtatttgcggcgtcagtctttt
+Location
+2 Off Target Hits
+>1264
+cggcaccatgtcctgctccaccttgctatacggtcggacc
+>1359
+cctgcccgccacacagaccaccatccaccgctgctccacg
+>1865
+ccgcctaggctcagcggcgaccgccctccgcgaaaatagt
+>1264
+cggcaccatgtcctgctccaccttgctatacggtcggacc
+>1359
+cctgcccgccacacagaccaccatccaccgctgctccacg
+>1865
+ccgcctaggctcagcggcgaccgccctccgcgaaaatagt
+>184
+ccgccgaatcatgtcgatgagtccaaagcacacgactccg
+>191
+atcatgtcgatgagtccaaagcacacgactccgttctcag
+Location
+3 Off Target Hits
+>2048
+tctgtgtatattatttggcagtttggtatttgcggcgtca
+>2068
+gtttggtatttgcggcgtcagtctttttctgttgtaactt
+>10
+gacagacacgtagaccaacagtgcggccccagggttcgtc

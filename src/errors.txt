@@ -1,0 +1,41 @@
+
+1) PROBLEM:
+Unrecognized function or variable 'PLISH_Probe_Design_BLST210'.
+ 
+Did you mean:
+>> PLISH_Probe_Design_BLAST210
+'seqrcomplement' requires Bioinformatics Toolbox.
+
+SOLUTION:
+Install Bioinformatics Toolbox on Matlab
+
+
+2) PROBLEM:
+Error in PLISH_Probe_Design_BLAST210 (line 534)
+                    h_probe_data(counter).HL_Seq_20 = seqrcomplement(oligo_l);
+
+Error using blastreadlocal
+Too many output arguments.
+
+>> PLISH_Probe_Design_BLAST210
+Warning: BLASTREADLOCAL will be removed in a future release. 
+ 
+SOLUTION:
+blastreadlocal has changed, we must install a Matlab = 2021a
+
+
+3) PROBLEM: 
+
+> In blastreadlocal (line 66)
+In PLISH_Probe_Design_BLAST210 (line 557) 
+Error using blastreadlocal (line 112)
+Cannot find NKX2-1_blastoutputfile.txt.
+
+Error in PLISH_Probe_Design_BLAST210 (line 557)
+                    h_probe_data(counter).ncbi = blastreadlocal(blastoutputfilestring,0);
+
+SOLUTION:
+
+Install BLAST locally in your computer, then you can test it using Windows Command Line:
+
+blastn -query TEST3_fasta_file.txt -taxids 9606 -db refseq_rna -evalue 100 -word_size 7 -gapopen 5 -gapextend 2 -dust no -num_alignments 100 -reward 2 -penalty -3 -out TEST3_blastoutputfile.txt

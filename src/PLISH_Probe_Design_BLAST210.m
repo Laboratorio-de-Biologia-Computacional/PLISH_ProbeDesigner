@@ -100,7 +100,7 @@ close all;
     
 % 6 "library_directory"
 % This is a directory to which each new probe is saved. 
-    library_directory = 'C:\Users\yalbi\OneDrive\Escritorio\hprobelibrary';
+    library_directory = 'C:\Users\yalbi\OneDrive\Documents\GitHub\PLISH_ProbeDesigner\hprobelibrary';
     
 % 7 "Hit Score Cutoff"
 % This is the criteria by which we say that an alignment is significnat or
@@ -116,7 +116,7 @@ close all;
 % Need to specify the enviromental variables that the local NCBI blast
 % program uses:
 %setenv('PATH', 'C:\NCBI\blast-2.10.0+\bin');
-%setenv('BLASTDB', '\C:\NCBI\blast-2.10.0+\db'); 
+%setenv('BLASTDB', 'C:\NCBI\blast-2.10.0+\db'); 
     
 % NCBI BLAST USER SPECIFIED OPTIONS:
 %--------------------------------------------------------------------------
@@ -224,7 +224,7 @@ if load_option == 1
     tmRNA = tmRNA{1,1};
     s_tmRNA = size(tmRNA);
 
-    % This line will make a new directory to store this genes data
+    % This line will make a new directory to store this data
     savepath = [library_directory,'\',gene_name,'_ver_02_2020'];
     status = mkdir(savepath);
 
@@ -638,7 +638,7 @@ if load_option == 1
                         h_p_l_prop = oligoprop(temp_left, 'Dimerlength', dimer_length);
                         h_p_r_prop = oligoprop(temp_right, 'Dimerlength', dimer_length);
 
-                        % Build the resutls into 
+                        % Build the results into 
                         vb(j).Full_Left_Probe = temp_left;
                         vb(j).Left_Name = temp_left_name;
                         vb(j).Full_Right_Probe = temp_right;
@@ -794,6 +794,8 @@ if load_option == 1
     fprintf(fileID, ['Location\t\t\tmRNA Sequence\n\n']);
 
     qst = size(resort_mat,1);
+    % Please change this number from 50 to 40 (qst) if you want to obtain results (e.g.,
+    % CC16)
     if qst < 50
         numtoprint = resort_mat;
     end
@@ -825,7 +827,8 @@ if load_option == 1
     end
     fprintf(fileID,['\n\n\n']);
     % Now cycle and print stuff
-
+    % Please change this number from 50 to 40 (qst) if you want to obtain results (e.g.,
+    % CC16)
     qst = size(resort_mat,1);
     if qst < 50
         numtoprint = resort_mat;
@@ -1197,8 +1200,8 @@ elseif load_option == 2
             hits_to_print = size(h_probe_data(resort_mat(i,2)).ncbi.Hits,2);
         end
         for j = 1:hits_to_print
-            cadena = strcmp(h_probe_data(resort_mat(i,2)).ncbi.Hits(j).HSPs(1).Strand, 'Plus/Plus');
-            if cadena == 0
+            %cadena = strcmp(h_probe_data(resort_mat(i,2)).ncbi.Hits(j).HSPs(1).Strand, 'Plus/Plus');
+            %if cadena == 0
                 if h_probe_data(resort_mat(i,2)).ncbi.Hits(j).HSPs(1).Score >= bitscore_sig
             
                     fprintf(fileID, ['\t\tHit #: ',num2str(j, '%d'),'\n']);
@@ -1212,7 +1215,7 @@ elseif load_option == 2
                     fprintf(fileID, ['\t\t\t\t        \t   ', h_probe_data(resort_mat(i,2)).ncbi.Hits(j).HSPs(1).Alignment(2,:), '\n']);
                     fprintf(fileID, ['\t\t\t\tSubject: ',num2str(h_probe_data(resort_mat(i,2)).ncbi.Hits(j).HSPs(1).SubjectIndices(1,1), '%d'),'\t - ', h_probe_data(resort_mat(i,2)).ncbi.Hits(j).HSPs(1).Alignment(3,:),' - ', num2str( h_probe_data(resort_mat(i,2)).ncbi.Hits(j).HSPs(1).SubjectIndices(1,2), '%d'), '\n']);
                 end
-            end
+            %end
         end
         % This part should print out all the left probes
         fprintf(fileID, ['\n\n\t\t\t\tID\tProbe Name\t\t\tProbe Sequence\t\t\t\t\t\tTm\t\t\t^G\t\t\tHairpins (',num2str(dimer_length,'%d'), ' BP)\t\tDimers (',num2str(dimer_length,'%d'),' BP)']);
@@ -1261,7 +1264,7 @@ else
     gene_name = inputdlg('Enter The Gene Name',...
              'Name Entry', [1 50]);
     gene_name = gene_name{1,1};
-    library_directory = 'C:\Users\yalbi\OneDrive\Escritorio\hprobelibrary';
+    library_directory = 'C:\Users\yalbi\OneDrive\Documents\GitHub\PLISH_ProbeDesigner\hprobelibrary';
     savepath = [library_directory,'\',gene_name,'_ver_02_2020'];
     S = dir([savepath,'\*.mat']);
     load([savepath,'\',S.name]);
