@@ -48,7 +48,9 @@ After downloading, unpack and un-tar the downloaded files into the BLASTDB direc
 Each time a new probeset is designed for a specific gene, a new directory of the form ..\<gene name>_ver_02_2020 is created inside the library directory where results from the script are saved. 
 
 ### Executing program
-Running the script: Option 1
+
+#### Running the script: Option 1
+
 1.	After opening MATLAB and changing MATLAB’s working directory to the directory containing the design script, type PLISH_Probe_Design_BLAST210 at the MATLAB prompt.
 
 2.	A menu opens titled, “Select the Mode of Operation'” that allows the user to choose between: 1. Making a probeset from scratch, 2. Opening and re-analyzing a previously created probeset, and 3. Making an excel sheet of desired probes for ordering purposes. For most cases, the user will use option 1 or 3. The following assumes the user chooses option 1. 
@@ -83,10 +85,12 @@ Note that H-probe tail sequences from PLISH version 1.0 are also included in thi
 
 11.	A master list of the above data is saved in the form of a text file titled <gene_name>_Master_Probe_Sheet.txt. We have found this easier to navigate and search the sheet by opening it with a web browser such as Firefox or Opera. The first part of the sheet contains a FASTA file which can be directly copied and pasted into the online NCBI blast search program as a means of double checking the design process if desired. This FASTA file is ordered by degree of off-target homology, with the least off-target homology being at the top. Scrolling further down the sheet will give more detailed results for each probe site, including its blast report, the list of h-probes for the specific probe site complimenting the 24 variable bridges, and thermodynamic properties of each probe.
 
-Running the script: Option 2
+#### Running the script: Option 2
+  
 1.	Option 2 can be selected after running part 1 detailed above. This option will merely change the bitscore cutoff for off target homology. It will then recalculate the ranking of the probe sites based on this new score. The script will ask the user to provide the gene name – it must match the gene name typed in step 5 above exactly, case included. After this, a new bitscore value can be entered. The results will be re-saved in the text file described above.
 
-Running the script: Option 3
+#### Running the script: Option 3
+  
 2.	If the user decides to move forward with ordering probes designed in part 1 of the PLISH probe design program, re-running the script and choosing option 3 can be useful for producing an excel spreadsheet which makes uploading the probe names and sequences to a commercial vendor easier. 
 
 3.	After choosing option 3, the program will ask the user to enter the gene name which was used in option 1. The gene name must match the original name exactly, case included.
